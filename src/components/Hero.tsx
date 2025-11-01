@@ -1,32 +1,57 @@
-
+import { motion } from "framer-motion";
+import Typing from "./Typing";
 
 export default function Hero() {
   return (
-    <section className="px-4 py-5" id="home">
-      <div className="@container">
-        <div className="p-0 md:p-4">
-          <div
-            className="flex min-h-[60vh] md:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-none md:rounded-xl items-center justify-center p-4"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMQuSef_b8_7ntIF1dlYj88cfgJVXWzC83qbttWaEjMDW10mN6xHKfhXBX3sxUewvRpg1K4IgoobjvBhJZEvMV6aMYwTbmQdtnBsDmxOmWTV5rXBSSFsIkcyUMBKBIvNOyYAJXhaOByLGUDivQ1MV446s8FEaRcK8mHYZpJhxUqYno0_PZbblmFRYB2ykCZQzsIvx1bZBtEpLxu7RqOL8T9abWLgKORcmgNpacr5T2CauojzEA6Ak9HiI32kk0HTxXCEe6O7kwoPo")',
-            }}
-          >
-            <div className="flex flex-col gap-4 text-center max-w-2xl">
-              <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                Stunning Website Designs That Convert.
-              </h1>
-              <h2 className="text-white/90 text-base font-normal leading-normal @[480px]:text-lg @[480px]:font-normal @[480px]:leading-normal">
-                We create beautiful, user-friendly websites that drive results.
-              </h2>
-            </div>
-            <button   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
->
-              <span className="truncate">Get a Free Quote</span>
-            </button>
-          </div>
-        </div>
+    <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden">
+      {/* Fondo dinámico */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7]">
+        <motion.div
+          className="absolute inset-0 opacity-30"
+          animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+         
+        />
       </div>
+
+      {/* Contenido */}
+      <div className="relative z-10 text-center px-6 md:px-12 max-w-3xl flex flex-col items-center gap-6">
+       
+        <Typing hold={3000} words={['Aumentamos tus ventas', 'Mejoramos tu experiencia', 'Hacemos crecer tu negocio']} className="text-[#ffc300] text-4xl "  />
+        
+        <motion.h1
+          className="text-4xl md:text-6xl font-black text-white tracking-tight leading-[1.1]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Diseñamos tu web con tecnología, no con plantillas
+        </motion.h1>
+
+        <motion.p
+          className="text-white/90 text-lg md:text-xl font-light"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          Sin WordPress, sin Tiendanube. Creamos sitios <strong className="font-bold">personalizados</strong> con diseños de alto rendimiento.
+        </motion.p>
+
+        <motion.button
+          whileHover={{ scale: 1.05, y: -4 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="relative px-6 py-3 mt-4 font-semibold text-black bg-white hover:text-white hover:bg-black rounded-xl shadow-md overflow-hidden group"
+        >
+          <span className="relative z-10">Contactanos</span>
+          <span className="absolute inset-0 text-white transition-all duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center">
+            Contactanos
+          </span>
+        </motion.button>
+      </div>
+
+      {/* Sombra inferior suave */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
     </section>
   );
 }

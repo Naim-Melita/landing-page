@@ -26,20 +26,20 @@ export default function Testimonials() {
 
   return (
     <section
-      className="px-4 py-10 md:py-20 bg-background-light dark:bg-background-dark/50"
+      className="px-4 py-10 md:py-20 bg-background-light bg-background-dark/50"
       id="testimonials"
     >
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-text-light dark:text-text-dark text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-12 text-center">
+        <h2 className="text-text-light text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-12 text-center">
           What Our Clients Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-background-dark rounded-xl p-6 shadow-md"
+              className="bg-white  rounded-xl p-6 shadow-md"
             >
-              <p className="text-text-light dark:text-text-dark/90 italic">
+              <p className="text-text-light text-text-dark/90 italic">
                 "{t.quote}"
               </p>
               <div className="flex items-center mt-4">
@@ -49,10 +49,10 @@ export default function Testimonials() {
                   className="w-12 h-12 rounded-full mr-4"
                 />
                 <div>
-                  <p className="font-bold text-text-light dark:text-text-dark">
+                  <p className="font-bold text-text-light ">
                     {t.name}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-500 ">
                     {t.role}
                   </p>
                 </div>

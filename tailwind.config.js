@@ -6,14 +6,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1380ec",
-        "background-light": "#F8F9FA",
+        primary: "#03045E",
+        "background-light": "#caf0f8",
         "background-dark": "#101922",
-        "text-light": "#333333",
-        "text-dark": "#F0F4F8",
+        "text-light": "#000",
+        "text-dark": "#fff",
       },
       fontFamily: {
-        display: ["Work Sans", "Noto Sans", "sans-serif"],
+        display: ["Red Hat Display", "Noto Sans", "sans-serif"],
       },
     },
   },
