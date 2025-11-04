@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Portfolio from "./components/Porfolio";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
+import Testimonials from "./components/WhychooseUs";
+// import Contact from "./components/Contact";
 
 
 export default function App() {
@@ -13,9 +13,10 @@ export default function App() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Portfolio />
         <Testimonials />
-        <Contact />
+        <Portfolio />
+      
+        {/* <Contact /> */}
       </main>
 
     </div>
