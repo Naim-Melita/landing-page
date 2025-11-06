@@ -31,14 +31,14 @@ export default function Portfolio() {
   return (
     <section className="px-4 py-10 md:py-20" id="portfolio">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-text-light  text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">
-          Our Work
+        <h2 className="text-purpleText  text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">
+          Nuestros Servicios
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-5 aspect-[4/3] group overflow-hidden"
+              className="bg-cover bg-center flex flex-col gap-3  justify-end p-5 aspect-[4/3] group overflow-hidden"
               style={{
                 backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%), url(${project.img})`,
               }}
