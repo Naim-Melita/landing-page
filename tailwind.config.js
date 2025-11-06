@@ -7,10 +7,12 @@ export default {
     extend: {
       colors: {
         primary: "#03045E",
-        "background-light": "#caf0f8",
-        "background-dark": "#101922",
-        "text-light": "#000",
-        "text-dark": "#fff",
+       secondary: "#d8ff00",
+       purple: "#6d4aff",
+       purpleDark:"#160f35",
+       green: "#16803c",
+       purpleText: "#372580",
+
       },
       fontFamily: {
         display: ["Red Hat Display", "Noto Sans", "sans-serif"],

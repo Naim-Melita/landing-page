@@ -2,10 +2,10 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative px-6 py-20 bg-gradient-to-b from-blue-400 to-background-dark/40"
+      className="relative px-6 py-20 bg-white0"
     >
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-text-light">
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-purpleText">
           ¿Por qué elegirnos?
         </h2>
         <p className="mt-6 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto leading-relaxed">
@@ -16,7 +16,7 @@ export default function WhyChooseUs() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Velocidad */}
-          <div className="bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7] backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
+          <div className="bg-purple text-white backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-10 h-10 mx-auto mb-4 text-indigo-500"
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Diseño Premium */}
-          <div className="bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7] backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
+          <div className="bg-purple text-white backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-10 h-10 mx-auto mb-4 text-pink-500"
@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Escalabilidad */}
-          <div className="bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7] backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
+          <div className="bg-purple text-white backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-10 h-10 mx-auto mb-4 text-green-500"

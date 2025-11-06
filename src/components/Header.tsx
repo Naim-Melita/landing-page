@@ -2,8 +2,7 @@
 const Header = () => {
   return (
     <header
-      
-      className="bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7] sticky top-0 z-50 flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3  backdrop-blur-sm"
+      className="bg-transparent absolute inset-x-0 top-0 z-50 flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3 backdrop-blur-sm"
     >
       <div className="flex items-center gap-4 ">
         <div className="size-6 text-primary">
