@@ -3,6 +3,8 @@ import Hero from "./components/Hero";
 import Portfolio from "./components/Porfolio";
 import Testimonials from "./components/WhychooseUs";
 import PricingTable from "./components/PricingTable"; 
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 // import Contact from "./components/Contact";
 
 
@@ -16,6 +18,11 @@ export default function App() {
         <PricingTable />
         <Testimonials />
         <Portfolio />
+
+
+        <Footer />
+
+        {/* <Contact /> */}
         {/* <Contact /> */}
  
 

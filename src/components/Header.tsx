@@ -4,11 +4,9 @@ const Header = () => {
     <header
       className="bg-transparent absolute inset-x-0 top-0 z-50 flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3 backdrop-blur-sm"
     >
-      <div className="flex items-center gap-4 ">
-        <div className="size-6 text-primary">
-         {/* <img src="/src/assets/logo armelixpng.png" alt="" /> */}
-        </div>
-        <h2 className="text-white ttext-lg font-bold leading-tight tracking-[-0.015em]">
+      <div className="flex items-center gap-4 mt-2">
+        
+        <h2 className="text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
         ARMELIX
         </h2>
       </div>
