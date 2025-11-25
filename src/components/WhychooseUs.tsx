@@ -1,14 +1,18 @@
+import bg from "../assets/banner-bg.jpg";
+
+
 export default function WhyChooseUs() {
   return (
     <section
+        style={{ backgroundImage: `url(${bg})` }}
       id="why-choose-us"
       className="relative px-6 py-20 bg-white0"
     >
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-purpleText">
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-secondary">
           ¿Por qué elegirnos?
         </h2>
-        <p className="mt-6 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto leading-relaxed">
+        <p className="mt-6 text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
           Diseñamos páginas web modernas, rápidas y escalables que elevan tu marca.
           Combinamos estética minimalista con tecnología de vanguardia para que tu
           negocio destaque y convierta más.

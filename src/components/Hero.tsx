@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import Typing from "./Typing";
-import bg from "../assets/bg.webp";
+import bg from "../assets/banner-bg.jpg";
+import smoke from "../assets/smoke.png";
+
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center min-h-screen overflow-hidden bg-[#160f35]"
+      className="relative flex items-center justify-center h-screen overflow-hidden bg-[#020F2E]"
     >
       {/* Fondo dinámico */}
       {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7]">
@@ -71,6 +73,10 @@ export default function Hero() {
 
       {/* Sombra inferior suave */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#160f35] via-[#160f35]/80 to-transparent pointer-events-none"></div>
+
+      <div className="absolute -bottom-2 left-0 right-0 ">
+        <img src={smoke} alt="" />
+      </div>
     </section>
   );
 }
