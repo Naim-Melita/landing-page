@@ -46,22 +46,21 @@ export default function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block text-white text-sm font-medium  text-text-dark"
-            >
-              Message
+              className="block text-black text-sm font-medium  text-text-dark"
+            >   Message
             </label>
             <textarea
               name="message"
               id="message"
               rows={4}
-              className="mt-1 block w-full rounded-lg border-gray-300 border-gray-600 bg-background-light bg-gray-700 shadow-sm focus:border-primary focus:ring-primary sm:text-sm  text-text-dark"
+              className="mt-1 block w-full rounded-lg  border-gray-600 bg-background-light bg-gray-700 shadow-sm focus:border-primary focus:ring-primary sm:text-sm  text-text-dark"
             />
           </div>
 
           <div>
             <button
               type="submit"
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-black hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-black bg-black hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
             >
               Send Message
             </button>
