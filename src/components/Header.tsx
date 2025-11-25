@@ -13,12 +13,7 @@ const Header = () => {
 
       <div className="hidden md:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
-          <a
-            className="text-white ttext-sm font-medium leading-normal"
-            href="#home"
-          >
-            Inicio
-          </a>
+         
           <a
             className="text-white ttext-sm font-medium leading-normal"
             href="#portfolio"
@@ -27,9 +22,9 @@ const Header = () => {
           </a>
           <a
             className="text-white ttext-sm font-medium leading-normal"
-            href="#testimonials"
+            href="#services"
           >
-            Testimonios
+            Servicios
           </a>
           <a
             className="text-white ttext-sm font-medium leading-normal"

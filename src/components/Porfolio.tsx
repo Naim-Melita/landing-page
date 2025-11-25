@@ -1,3 +1,5 @@
+import Slider from "react-slick";
+
 export default function Portfolio() {
   const projects = [
     {
@@ -26,27 +28,48 @@ export default function Portfolio() {
     },
   ];
 
+  const settings = {
+    arrows: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 640,
+        settings: { slidesToShow: 1, centerMode: true, centerPadding: "24px" },
+      },
+    ],
+  };
+
   return (
-    <section className="px-4 py-10 md:py-20" id="portfolio">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-purpleText  text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">
+    <section className="px-0 md:px-4 py-10 md:py-20" id="portfolio">
+      <div className="max-w-7xl mx-auto w-full">
+        <h2 className="text-purpleText text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">
           Nuestros Servicios
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className="bg-cover bg-center flex flex-col gap-3  justify-end p-5 aspect-[4/3] group overflow-hidden  "
-              style={{
-                backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%), url(${project.img})`,
-              }}
-            >
-              <p className="text-white text-lg group-hover:scale-105 font-bold leading-tight transform  transition-transform duration-300">
-                {project.title}
-              </p>
+        <Slider {...settings} className="px-4 md:px-6">
+          {projects.map((project, index) => (
+            <div key={index} className="px-3">
+              <div className="overflow-hidden rounded-xl shadow-lg bg-white/80 backdrop-blur">
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold">{project.title}</h3>
+                </div>
+              </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   );

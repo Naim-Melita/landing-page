@@ -1,7 +1,7 @@
 
 export default function PlanesDisenoWeb() {
   return (
-    <div className="bg-white font-[Work_Sans] flex flex-col items-center mt-10 pt-10 pb-32">
+    <div id="services" className="bg-white font-[Work_Sans] flex flex-col items-center mt-10 pt-10 pb-32">
       <h1 className="text-3xl text-purpleText font-extrabold mb-10">Planes de Diseño Web</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full px-6">

@@ -29,9 +29,9 @@ export default function Hero() {
         <Typing
           hold={3000}
           words={[
-            "Aumentamos tus ventas",
+            "Diseños personalizados",
             "Mejoramos tu experiencia",
-            "Hacemos crecer tu negocio",
+            "Tu marca en la web",
           ]}
           className="text-[#d8ff00] text-4xl "
         />
