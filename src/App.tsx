@@ -4,7 +4,7 @@ import Portfolio from "./components/Porfolio";
 import Testimonials from "./components/WhychooseUs";
 import PricingTable from "./components/PricingTable"; 
 import Footer from "./components/Footer";
-// import Contact from "./components/Contact";
+import Contact from "./components/Contact";
 
 
 export default function App() {
@@ -17,15 +17,11 @@ export default function App() {
         <PricingTable />
         <Testimonials />
         <Portfolio />
-
+        <Contact />
 
         <Footer />
-
-        {/* <Contact /> */}
-        {/* <Contact /> */}
  
 
     </div>
   );
 }
-

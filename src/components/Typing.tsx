@@ -8,7 +8,6 @@ type TypingProps = {
   speed?: number;       // segundos entre letras
   hold?: number;        // ms que queda la palabra completa antes de cambiar
   className?: string;
-  cursorClassName?: string;
 };
 
 export default function Typing({
@@ -16,7 +15,6 @@ export default function Typing({
   speed = 0.04,
   hold = 1200,
   className = "text-3xl md:text-5xl font-black",
-  cursorClassName = "w-[2px] bg-white"
 }: TypingProps) {
   const [index, setIndex] = useState(0);
 

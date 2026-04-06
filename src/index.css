@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Opcional: tus estilos extra */
 .material-symbols-outlined {
   font-variation-settings:
