@@ -48,8 +48,12 @@ export default function Portfolio() {
         settings: { slidesToShow: 2 },
       },
       {
+        breakpoint: 768,
+        settings: { slidesToShow: 1, slidesToScroll: 1 },
+      },
+      {
         breakpoint: 640,
-        settings: { slidesToShow: 1, centerMode: true, centerPadding: "24px" },
+        settings: { slidesToShow: 1, slidesToScroll: 1, centerMode: false },
       },
     ],
   };
@@ -60,14 +64,14 @@ export default function Portfolio() {
         <h2 className="text-armelix-primary text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">
           Soluciones para que puedas vender en internet
         </h2>
-        <Slider {...settings} className="px-4 md:px-6">
+        <Slider {...settings} className="px-2 sm:px-4 md:px-6">
           {projects.map((project, index) => (
-            <div key={index} className="px-3">
+            <div key={index} className="px-2 sm:px-3">
               <div className="overflow-hidden rounded-xl border border-armelix-border shadow-lg bg-armelix-surface backdrop-blur">
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 hover:scale-105"
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-armelix-text">{project.title}</h3>
