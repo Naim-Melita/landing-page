@@ -6,8 +6,28 @@ import carousel4 from "../assets/carousel/carousel4.png";
 import carousel5 from "../assets/carousel/carousel5.png";
 import carousel6 from "../assets/carousel/carousel6.png";
 
+type Project = {
+  title: string;
+  img: string;
+};
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-armelix-border shadow-lg bg-armelix-surface backdrop-blur">
+      <img
+        src={project.img}
+        alt={project.title}
+        className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 hover:scale-105"
+      />
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-armelix-text">{project.title}</h3>
+      </div>
+    </div>
+  );
+}
+
 export default function Portfolio() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Páginas web para captar consultas",
       img: carousel1,
@@ -64,19 +84,19 @@ export default function Portfolio() {
         <h2 className="text-armelix-primary text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] px-4 pb-8 text-center">
           Soluciones para que puedas vender en internet
         </h2>
-        <Slider {...settings} className="px-2 sm:px-4 md:px-6">
+
+        <div className="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory md:hidden">
+          {projects.map((project) => (
+            <div key={project.title} className="min-w-[86vw] max-w-[86vw] snap-center">
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+
+        <Slider {...settings} className="hidden px-2 sm:px-4 md:block md:px-6">
           {projects.map((project, index) => (
             <div key={index} className="px-2 sm:px-3">
-              <div className="overflow-hidden rounded-xl border border-armelix-border shadow-lg bg-armelix-surface backdrop-blur">
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 hover:scale-105"
-                />
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-armelix-text">{project.title}</h3>
-                </div>
-              </div>
+              <ProjectCard project={project} />
             </div>
           ))}
         </Slider>
