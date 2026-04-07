@@ -23,7 +23,7 @@ const Header = () => {
           {navItems.map((item) => (
             <a
               key={item.href}
-              className="text-sm font-medium leading-normal text-white transition hover:text-secondary"
+              className="text-sm font-medium leading-normal text-white transition hover:text-armelix-primary"
               href={item.href}
             >
               {item.label}

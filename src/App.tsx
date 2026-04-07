@@ -11,7 +11,7 @@ export default function App() {
   return (
   
 
-    <div className=" relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-armelix-background">
       <Header />
         <Hero />
         <PricingTable />

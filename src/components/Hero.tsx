@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import Typing from "./Typing";
-import bg from "../assets/banner-bg.jpg";
+import bg from "../assets/hero2.png";
 import smoke from "../assets/smoke.png";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center h-screen overflow-hidden bg-[#020F2E]"
+      className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#020F2E] px-4 py-28 sm:px-6 md:h-screen md:py-0"
     >
       {/* Fondo dinámico */}
       {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7]">
@@ -25,35 +25,35 @@ export default function Hero() {
       </div>
 
       {/* Contenido */}
-      <div className="relative z-10 text-center px-6 md:px-12 max-w-3xl flex flex-col items-center gap-6">
+      <div className="relative z-10 flex w-full max-w-[92vw] flex-col items-center gap-4 text-center sm:max-w-3xl md:gap-6 md:px-12">
         <Typing
           hold={3000}
           words={[
-            "Mas clientes para tu negocio",
-            "Paginas web que convierten",
-            "Publicidad y automatizacion",
+            "Vendé en internet",
+            "Más consultas",
+            "Marketing digital",
           ]}
-          className="text-[#d8ff00] text-4xl "
+          className="text-armelix-primary text-2xl sm:text-3xl md:text-4xl leading-tight justify-center"
         />
 
         <motion.h1
-          className="text-4xl md:text-6xl font-black text-white tracking-tight leading-[1.1]"
+          className="max-w-full text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Ayudamos a tu negocio a conseguir más clientes
+          Te ayudamos a empezar a vender en internet
         </motion.h1>
 
         <motion.p
-          className="text-white/90 text-lg md:text-xl font-light"
+          className="max-w-full text-base font-light leading-relaxed text-white/90 sm:text-lg md:text-xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Creamos sistemas digitales que atraen clientes, generan consultas y
-          aumentan ventas. Desde tu presencia online hasta el seguimiento por
-          WhatsApp, pensamos todo para que tu negocio crezca.
+          Armamos tu presencia online, creamos campañas de marketing y
+          conectamos todo para que más personas conozcan tu negocio, te escriban
+          y se conviertan en clientes.
         </motion.p>
 
         <motion.a
@@ -63,9 +63,9 @@ export default function Hero() {
           whileHover={{ scale: 1.05, y: -4 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="relative px-6 py-3 mt-4 font-semibold text-black bg-secondary  rounded-xl shadow-md overflow-hidden group"
+          className="relative px-6 py-3 mt-4 font-semibold text-armelix-text bg-armelix-secondary  rounded-xl shadow-md overflow-hidden group"
         >
-          <span className="relative z-10">Quiero mas consultas</span>
+          <span className="relative z-10">Quiero vender online</span>
           <span className="absolute inset-0 text-white transition-all duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center">
             Hablemos
           </span>

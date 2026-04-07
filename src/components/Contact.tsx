@@ -38,49 +38,45 @@ function MailIcon(props: IconProps) {
 const contactOptions = [
   {
     name: "WhatsApp",
-    description: "La forma mas rapida de hablar con nosotros y pedir info.",
-    href: "https://wa.me/5491123456789?text=Hola%20quiero%20mas%20informacion",
+    description: "La forma más rápida de contarnos qué vendés y qué necesitás.",
+    href: "https://wa.me/5491141775402?text=Hola%20quiero%20mas%20informacion",
     cta: "Escribir por WhatsApp",
-    accent: "from-[#25D366] to-[#128C7E]",
     icon: WhatsAppIcon,
   },
   {
     name: "Instagram",
-    description: "Mira contenido, casos y escribinos directo por mensaje.",
+    description: "Mirá nuestro perfil y escribinos directo por mensaje.",
     href: "https://www.instagram.com/armelix.dev/",
     cta: "Ir a Instagram",
-    accent: "from-[#F58529] via-[#DD2A7B] to-[#8134AF]",
     icon: InstagramIcon,
   },
   {
     name: "Facebook",
-    description: "Contactanos desde nuestra pagina y conoce mas del servicio.",
+    description: "Contactanos desde nuestra página y conocé más del servicio.",
     href: "https://www.facebook.com/profile.php?id=61573234855836",
     cta: "Ir a Facebook",
-    accent: "from-[#1877F2] to-[#0A58CA]",
     icon: FacebookIcon,
   },
   {
     name: "Email",
-    description: "Ideal si queres enviarnos detalles de tu negocio o proyecto.",
+    description: "Ideal si querés enviarnos detalles de tu negocio o proyecto.",
     href: "mailto:armelixempresa@gmail.com",
     cta: "Enviar email",
-    accent: "from-[#00C2FF] to-[#3A7BFF]",
     icon: MailIcon,
   },
 ];
 
 export default function Contact() {
   return (
-    <section className="px-4 py-12 md:py-24 bg-[#160f35]" id="contact">
+    <section className="px-4 py-12 md:py-24 bg-armelix-surface" id="contact">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl text-white md:text-5xl font-bold leading-tight tracking-[-0.015em] pb-4">
-            Hablemos por donde te quede mas comodo
+          <h2 className="text-3xl text-armelix-text md:text-5xl font-bold leading-tight tracking-[-0.015em] pb-4">
+            Contanos sobre tu negocio y vemos cómo ayudarte
           </h2>
-          <p className="text-white/80 text-lg mb-12">
-            Elegi el canal que prefieras para escribirnos. Respondemos consultas
-            sobre paginas web, publicidad digital y automatizacion.
+          <p className="text-armelix-textSoft text-lg mb-12">
+            Si querés empezar a vender en internet, mejorar tu presencia online
+            o lanzar campañas de marketing, escribinos por el canal que prefieras.
           </p>
         </div>
 
@@ -94,31 +90,26 @@ export default function Contact() {
                 href={option.href}
                 target={option.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={option.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 text-left backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
+                className="group relative overflow-hidden rounded-3xl border border-armelix-border bg-armelix-surfaceAlt p-8 text-left backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-armelix-primary"
               >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${option.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-                />
-                <div className="absolute inset-[1px] rounded-[calc(1.5rem-1px)] bg-[#160f35]/95" />
-
                 <div className="relative z-10 flex h-full flex-col gap-6">
                   <div className="flex items-center justify-between">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <Icon className="h-7 w-7 text-white" />
+                    <div className="rounded-2xl border border-armelix-border bg-armelix-surface p-3">
+                      <Icon className="h-7 w-7 text-armelix-primary" />
                     </div>
-                    <span className="text-sm font-medium uppercase tracking-[0.2em] text-white/50">
+                    <span className="text-sm font-medium uppercase tracking-[0.2em] text-armelix-textSoft">
                       Contacto
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold text-white">{option.name}</h3>
-                    <p className="mt-3 text-white/75 leading-relaxed">
+                    <h3 className="text-2xl font-bold text-armelix-text">{option.name}</h3>
+                    <p className="mt-3 text-armelix-textSoft leading-relaxed">
                       {option.description}
                     </p>
                   </div>
 
-                  <span className="inline-flex items-center text-sm font-semibold text-secondary">
+                  <span className="inline-flex items-center text-sm font-semibold text-armelix-primary">
                     {option.cta}
                   </span>
                 </div>
