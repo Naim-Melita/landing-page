@@ -1,4 +1,6 @@
 import type { SVGProps } from "react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewport } from "./motion";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -68,29 +70,45 @@ const contactOptions = [
 
 export default function Contact() {
   return (
-    <section className="px-4 py-12 md:py-24 bg-armelix-surface" id="contact">
+    <motion.section
+      className="bg-armelix-surface px-4 py-12 md:py-24"
+      id="contact"
+      variants={staggerContainer(0.16)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl text-armelix-text md:text-5xl font-bold leading-tight tracking-[-0.015em] pb-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <motion.h2
+            variants={fadeUp()}
+            className="pb-4 text-3xl font-bold leading-tight tracking-[-0.015em] text-armelix-text md:text-5xl"
+          >
             Contanos sobre tu negocio y vemos cómo ayudarte
-          </h2>
-          <p className="text-armelix-textSoft text-lg mb-12">
+          </motion.h2>
+          <motion.p variants={fadeUp(0.08)} className="mb-12 text-lg text-armelix-textSoft">
             Si querés empezar a vender en internet, mejorar tu presencia online
             o lanzar campañas de marketing, escribinos por el canal que prefieras.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {contactOptions.map((option) => {
+        <motion.div
+          className="grid grid-cols-1 gap-6 md:grid-cols-2"
+          variants={staggerContainer(0.12, 0.1)}
+        >
+          {contactOptions.map((option, index) => {
             const Icon = option.icon;
 
             return (
-              <a
+              <motion.a
                 key={option.name}
+                variants={fadeUp(index * 0.03)}
                 href={option.href}
                 target={option.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={option.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 className="group relative overflow-hidden rounded-3xl border border-armelix-border bg-armelix-surfaceAlt p-8 text-left backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-armelix-primary"
+                whileHover={{ y: -8, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 220, damping: 22 }}
               >
                 <div className="relative z-10 flex h-full flex-col gap-6">
                   <div className="flex items-center justify-between">
@@ -113,11 +131,11 @@ export default function Contact() {
                     {option.cta}
                   </span>
                 </div>
-              </a>
+              </motion.a>
             );
           })}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

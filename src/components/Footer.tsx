@@ -1,8 +1,17 @@
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewport } from "./motion";
+
 const Footer = () => {
   return (
-    <footer className="bg-armelix-background text-armelix-textSoft py-12 px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
+    <motion.footer
+      className="bg-armelix-background px-8 py-12 text-armelix-textSoft"
+      variants={staggerContainer(0.14)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+    >
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+        <motion.div variants={fadeUp()}>
           <h2 className="text-2xl font-bold text-armelix-text tracking-wide">
             Armelix Web Solutions
           </h2>
@@ -10,9 +19,9 @@ const Footer = () => {
             Ayudamos a negocios a empezar a vender en internet con presencia
             online, campañas de marketing y seguimiento de consultas.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col space-y-3">
+        <motion.div variants={fadeUp(0.06)} className="flex flex-col space-y-3">
           <h3 className="text-lg font-semibold text-armelix-text">Navegacion</h3>
           <nav className="flex flex-col space-y-2">
             <a href="#home" className="hover:text-armelix-primary transition">
@@ -25,26 +34,31 @@ const Footer = () => {
               Contacto
             </a>
           </nav>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUp(0.12)}>
           <h3 className="text-lg font-semibold text-armelix-text">Contacto</h3>
           <p className="mt-1 text-sm">armelixempresa@gmail.com</p>
-      <a
-        href="https://wa.me/5491141775402?text=Hola%20quiero%20mas%20informacion"
-        target="_blank"
-        rel="noopener noreferrer"
+          <motion.a
+            href="https://wa.me/5491141775402?text=Hola%20quiero%20mas%20informacion"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block mt-4 bg-armelix-primary text-armelix-background px-4 py-2 rounded-full shadow-lg hover:bg-armelix-accent transition"
+            whileHover={{ y: -3, scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
             WhatsApp
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
 
-      <div className="mt-12 border-t border-armelix-border pt-6 text-center text-sm text-armelix-textSoft">
+      <motion.div
+        variants={fadeUp(0.18)}
+        className="mt-12 border-t border-armelix-border pt-6 text-center text-sm text-armelix-textSoft"
+      >
         © {new Date().getFullYear()} Armelix. Todos los derechos reservados.
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 
