@@ -1,11 +1,48 @@
 import { motion } from "framer-motion";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useEffect, useRef } from "react";
 import Typing from "./Typing";
-import bg from "../assets/hero2.png";
+import bg from "../assets/hero3.png";
 import smoke from "../assets/smoke.png";
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const lockedRef = useRef(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const nextSection = document.getElementById("services");
+
+    if (!section || !nextSection) return;
+
+    const handleWheel = (event: WheelEvent) => {
+      if (lockedRef.current || event.deltaY <= 8) return;
+
+      const rect = section.getBoundingClientRect();
+      const heroMostlyVisible =
+        rect.top <= 0 && rect.bottom > window.innerHeight * 0.55;
+
+      if (!heroMostlyVisible) return;
+
+      event.preventDefault();
+      lockedRef.current = true;
+      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      window.setTimeout(() => {
+        lockedRef.current = false;
+      }, 900);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#020F2E] px-4 py-28 sm:px-6 md:h-screen md:py-0"
     >
@@ -71,6 +108,27 @@ export default function Hero() {
 
       {/* Sombra inferior suave */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#160f35] via-[#160f35]/80 to-transparent pointer-events-none"></div>
+
+      <div className="absolute bottom-16 left-0 right-0 z-10 flex justify-center">
+        <motion.a
+          href="#services"
+          className="flex flex-col items-center gap-2 text-center text-armelix-text/65 transition hover:text-armelix-text/90"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <span className="text-xs font-medium uppercase tracking-[0.28em]">
+            Deslizá hacia abajo
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
+          >
+            <ChevronDownIcon className="h-5 w-5" />
+          </motion.div>
+        </motion.a>
+      </div>
 
       <div className="absolute -bottom-2 left-0 right-0 ">
         <img src={smoke} alt="" />

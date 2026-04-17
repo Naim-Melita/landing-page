@@ -4,6 +4,7 @@ import rocket from "../assets/rocket.png";
 import premium from "../assets/premiun.png";
 import scalability from "../assets/escalabilidad.png";
 import { fadeIn, fadeUp, staggerContainer, viewport } from "./motion";
+import SectionCTA from "./SectionCTA";
 
 const benefits = [
   {
@@ -67,7 +68,7 @@ export default function WhyChooseUs() {
             >
               <motion.img
                 src={benefit.image}
-                className="mx-auto w-3/4"
+                className="mx-auto mb-5 w-[88%] md:w-full"
                 alt=""
                 variants={fadeIn(0.1)}
                 whileHover={{ rotate: [0, -2, 2, 0] }}
@@ -79,6 +80,10 @@ export default function WhyChooseUs() {
               <p className="text-armelix-textSoft">{benefit.description}</p>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div variants={fadeUp(0.14)}>
+          <SectionCTA />
         </motion.div>
       </div>
     </motion.section>

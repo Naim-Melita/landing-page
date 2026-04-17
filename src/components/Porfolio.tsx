@@ -7,6 +7,7 @@ import carousel4 from "../assets/carousel/carousel4.png";
 import carousel5 from "../assets/carousel/carousel5.png";
 import carousel6 from "../assets/carousel/carousel6.png";
 import { fadeUp, staggerContainer, viewport } from "./motion";
+import SectionCTA from "./SectionCTA";
 
 type Project = {
   title: string;
@@ -16,17 +17,19 @@ type Project = {
 function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
-      className="overflow-hidden rounded-xl border border-armelix-border bg-armelix-surface shadow-lg backdrop-blur"
+      className="rounded-xl border border-armelix-border bg-armelix-surface shadow-lg backdrop-blur mt-3"
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 220, damping: 22 }}
     >
-      <motion.img
-        src={project.img}
-        alt={project.title}
-        className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 hover:scale-105"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.35 }}
-      />
+      <div className="overflow-hidden rounded-t-xl">
+        <motion.img
+          src={project.img}
+          alt={project.title}
+          className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 hover:scale-105"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.35 }}
+        />
+      </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold text-armelix-text">{project.title}</h3>
       </div>
@@ -104,7 +107,7 @@ export default function Portfolio() {
         </motion.h2>
 
         <motion.div
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:hidden"
+          className="mt-3 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:hidden"
           variants={staggerContainer(0.12, 0.1)}
         >
           {projects.map((project) => (
@@ -118,7 +121,7 @@ export default function Portfolio() {
           ))}
         </motion.div>
 
-        <motion.div variants={fadeUp(0.12)} className="hidden md:block">
+        <motion.div variants={fadeUp(0.12)} className="mt-4 hidden pb-3 md:block">
           <Slider {...settings} className="hidden px-2 sm:px-4 md:block md:px-6">
           {projects.map((project, index) => (
             <div key={index} className="px-2 sm:px-3">
@@ -126,6 +129,10 @@ export default function Portfolio() {
             </div>
           ))}
           </Slider>
+        </motion.div>
+
+        <motion.div variants={fadeUp(0.16)}>
+          <SectionCTA />
         </motion.div>
       </div>
     </motion.section>

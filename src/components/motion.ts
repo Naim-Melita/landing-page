@@ -1,7 +1,7 @@
 import type { Variants } from "framer-motion";
 
 export const viewport = {
-  once: true,
+  once: false,
   amount: 0.2,
 };
 

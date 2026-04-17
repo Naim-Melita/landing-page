@@ -1,10 +1,12 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import TrustedBy from "./components/TrustedBy";
 import Portfolio from "./components/Porfolio";
 import Testimonials from "./components/WhychooseUs";
 import PricingTable from "./components/PricingTable"; 
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
+import FAQ from "./components/FAQ";
 
 
 export default function App() {
@@ -17,7 +19,9 @@ export default function App() {
         <PricingTable />
         <Testimonials />
         <Portfolio />
+        <FAQ />
         <Contact />
+        <TrustedBy />
 
         <Footer />
  

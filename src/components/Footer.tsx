@@ -30,6 +30,9 @@ const Footer = () => {
             <a href="#services" className="hover:text-armelix-primary transition">
               Servicios
             </a>
+            <a href="#faq" className="hover:text-armelix-primary transition">
+              FAQ
+            </a>
             <a href="#contact" className="hover:text-armelix-primary transition">
               Contacto
             </a>

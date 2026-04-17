@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewport } from "./motion";
+import SectionCTA from "./SectionCTA";
 
 const services = [
   {
@@ -73,6 +74,10 @@ export default function PlanesDisenoWeb() {
             </div>
           </motion.article>
         ))}
+      </motion.div>
+
+      <motion.div variants={fadeUp(0.12)} className="w-full">
+        <SectionCTA />
       </motion.div>
     </motion.section>
   );
