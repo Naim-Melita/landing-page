@@ -5,7 +5,6 @@ import { fadeIn, fadeUp, staggerContainer, viewport } from "./motion";
 
 const navItems = [
   { label: "Servicios", href: "#services" },
-  { label: "Soluciones", href: "#portfolio" },
   { label: "FAQ", href: "#faq" },
   { label: "Contacto", href: "#contact" },
 ];
