@@ -1,96 +1,50 @@
 import { motion } from "framer-motion";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { useEffect, useRef } from "react";
-import Typing from "./Typing";
-import bg from "../assets/hero3.png";
-import smoke from "../assets/smoke.png";
+import { useRef } from "react";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const lockedRef = useRef(false);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const nextSection = document.getElementById("services");
-
-    if (!section || !nextSection) return;
-
-    const handleWheel = (event: WheelEvent) => {
-      if (lockedRef.current || event.deltaY <= 8) return;
-
-      const rect = section.getBoundingClientRect();
-      const heroMostlyVisible =
-        rect.top <= 0 && rect.bottom > window.innerHeight * 0.55;
-
-      if (!heroMostlyVisible) return;
-
-      event.preventDefault();
-      lockedRef.current = true;
-      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      window.setTimeout(() => {
-        lockedRef.current = false;
-      }, 900);
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative flex min-h-svh items-center justify-center overflow-hidden bg-[#020F2E] px-4 py-28 sm:px-6 md:h-screen md:py-0"
+      className="relative flex min-h-svh items-center justify-center overflow-hidden bg-armelix-background px-4 py-28 sm:px-6 md:h-screen md:py-0"
     >
-      {/* Fondo dinámico */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0077B6] via-[#00A6C7] to-[#0096C7]">
-       */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(31,139,255,0.18),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(32,227,255,0.12),_transparent_38%)]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+      <div className="absolute left-1/2 top-28 h-64 w-64 -translate-x-1/2 rounded-full bg-armelix-secondary/10 blur-3xl" />
 
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-        <motion.div
-          className="absolute inset-0 opacity-30"
-          animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
-          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-        />
-      </div>
-
-      {/* Contenido */}
-      <div className="relative z-10 flex w-full max-w-[92vw] flex-col items-center gap-4 text-center sm:max-w-3xl md:gap-6 md:px-12">
-        <Typing
-          hold={3000}
-          words={[
-            "Vendé en internet",
-            "Más consultas",
-            "Marketing digital",
-          ]}
-          className="text-armelix-primary text-2xl sm:text-3xl md:text-4xl leading-tight justify-center"
-        />
+      <div className="relative z-10 flex w-full max-w-[94vw] flex-col items-center gap-5 text-center sm:max-w-5xl md:gap-6 md:px-10 lg:max-w-6xl lg:gap-7">
+        <motion.span
+          className="inline-flex items-center rounded-full border border-armelix-border bg-armelix-surface px-4 py-2 text-sm font-medium tracking-[0.14em] text-armelix-textSoft uppercase shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          Presencia online para negocios
+        </motion.span>
 
         <motion.h1
-          className="max-w-full text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl"
+          className="mt-2 max-w-6xl text-3xl font-black leading-[1.03] tracking-tight text-armelix-text sm:text-4xl md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Te ayudamos a empezar a vender en internet
+          Diseñamos páginas web y sistemas digitales para que tu negocio pueda
+          crecer en internet.
         </motion.h1>
 
         <motion.p
-          className="max-w-full text-base font-light leading-relaxed text-white/90 sm:text-lg md:text-xl"
+          className="max-w-4xl text-base font-normal leading-relaxed text-armelix-textSoft sm:text-lg md:text-xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Armamos tu presencia online, creamos campañas de marketing y
-          conectamos todo para que más personas conozcan tu negocio, te escriban
-          y se conviertan en clientes.
+          Diseñamos páginas web rápidas, tiendas online fáciles de usar y
+          campañas en redes sociales para que más personas te encuentren, te
+          escriban y tu negocio pueda crecer con una presencia digital
+          profesional.
         </motion.p>
 
         <motion.a
@@ -100,38 +54,51 @@ export default function Hero() {
           whileHover={{ scale: 1.05, y: -4 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="relative px-6 py-3 mt-4 font-semibold text-armelix-text bg-armelix-secondary  rounded-xl shadow-md overflow-hidden group"
+          className="mt-5 rounded-xl bg-armelix-secondary px-7 py-3.5 text-base font-semibold text-armelix-text shadow-[0_12px_30px_rgba(31,139,255,0.28)] transition"
         >
-          <span className="relative z-10">Contactanos</span>
+          Hablemos de tu negocio
         </motion.a>
+
       </div>
 
-      {/* Sombra inferior suave */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#160f35] via-[#160f35]/80 to-transparent pointer-events-none"></div>
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-armelix-background via-armelix-background/80 to-transparent" />
 
-      <div className="absolute bottom-16 left-0 right-0 z-10 flex justify-center">
+      <div className="absolute bottom-5 left-0 right-0 z-10 flex justify-center md:hidden">
         <motion.a
           href="#services"
-          className="flex flex-col items-center gap-2 text-center text-armelix-text/65 transition hover:text-armelix-text/90"
+          className="flex items-center justify-center text-armelix-textSoft/80 transition hover:text-armelix-text"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
+          aria-label="Deslizá hacia abajo"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.28em]">
-            Deslizá hacia abajo
-          </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-armelix-border bg-armelix-surface/80 backdrop-blur-sm"
           >
             <ChevronDownIcon className="h-5 w-5" />
           </motion.div>
         </motion.a>
       </div>
 
-      <div className="absolute -bottom-2 left-0 right-0 ">
-        <img src={smoke} alt="" />
+      <div className="absolute bottom-8 left-0 right-0 z-10 hidden justify-center md:bottom-10 md:flex">
+        <motion.a
+          href="#services"
+          className="flex flex-col items-center gap-2 text-center text-armelix-textSoft/80 transition hover:text-armelix-text"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+        
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-armelix-border bg-armelix-surface/80 backdrop-blur-sm"
+          >
+            <ChevronDownIcon className="h-5 w-5" />
+          </motion.div>
+        </motion.a>
       </div>
     </section>
   );

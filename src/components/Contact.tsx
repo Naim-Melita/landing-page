@@ -71,71 +71,83 @@ const contactOptions = [
 export default function Contact() {
   return (
     <motion.section
-      className="bg-armelix-surface px-4 py-12 md:py-24"
+      className="relative overflow-hidden bg-armelix-background px-4 py-14 md:py-24"
       id="contact"
       variants={staggerContainer(0.16)}
       initial="hidden"
       whileInView="visible"
       viewport={viewport}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="mx-auto max-w-3xl text-center">
-          <motion.h2
-            variants={fadeUp()}
-            className="pb-4 text-3xl font-bold leading-tight tracking-[-0.015em] text-armelix-text md:text-5xl"
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(31,139,255,0.10),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(32,227,255,0.08),_transparent_28%)]" />
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+          <div className="pl-2 sm:pl-4 lg:pl-8 lg:pr-8">
+            <motion.p
+              variants={fadeUp()}
+              className="text-xs font-medium uppercase tracking-[0.24em] text-armelix-primary"
+            >
+              Contacto
+            </motion.p>
+            <motion.h2
+              variants={fadeUp(0.05)}
+              className="mt-6 max-w-[14ch] text-4xl font-bold leading-[1.08] tracking-[-0.02em] text-armelix-text md:text-5xl"
+            >
+              Contanos sobre tu negocio y vemos cómo ayudarte
+            </motion.h2>
+            <motion.p
+              variants={fadeUp(0.1)}
+              className="mt-6 max-w-xl text-base leading-relaxed text-armelix-textSoft md:text-lg"
+            >
+              Si querés empezar a vender en internet, mejorar tu presencia online
+              o lanzar campañas de marketing, escribinos por el canal que te
+              resulte más cómodo.
+            </motion.p>
+          </div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-5 md:grid-cols-2"
+            variants={staggerContainer(0.12, 0.1)}
           >
-            Contanos sobre tu negocio y vemos cómo ayudarte
-          </motion.h2>
-          <motion.p variants={fadeUp(0.08)} className="mb-12 text-lg text-armelix-textSoft">
-            Si querés empezar a vender en internet, mejorar tu presencia online
-            o lanzar campañas de marketing, escribinos por el canal que prefieras.
-          </motion.p>
-        </div>
+            {contactOptions.map((option, index) => {
+              const Icon = option.icon;
 
-        <motion.div
-          className="grid grid-cols-1 gap-6 md:grid-cols-2"
-          variants={staggerContainer(0.12, 0.1)}
-        >
-          {contactOptions.map((option, index) => {
-            const Icon = option.icon;
-
-            return (
-              <motion.a
-                key={option.name}
-                variants={fadeUp(index * 0.03)}
-                href={option.href}
-                target={option.href.startsWith("mailto:") ? undefined : "_blank"}
-                rel={option.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="group relative overflow-hidden rounded-3xl border border-armelix-border bg-armelix-surfaceAlt p-8 text-left backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-armelix-primary"
-                whileHover={{ y: -8, scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 220, damping: 22 }}
-              >
-                <div className="relative z-10 flex h-full flex-col gap-6">
-                  <div className="flex items-center justify-between">
-                    <div className="rounded-2xl border border-armelix-border bg-armelix-surface p-3">
-                      <Icon className="h-7 w-7 text-armelix-primary" />
+              return (
+                <motion.a
+                  key={option.name}
+                  variants={fadeUp(index * 0.03)}
+                  href={option.href}
+                  target={option.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={option.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="group relative overflow-hidden rounded-3xl border border-armelix-border bg-armelix-surface p-7 text-left transition duration-300 hover:-translate-y-1 hover:border-armelix-primary hover:bg-armelix-surfaceAlt"
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 22 }}
+                >
+                  <div className="relative z-10 flex h-full flex-col gap-5">
+                    <div className="flex items-center justify-between">
+                      <div className="rounded-2xl border border-armelix-border bg-armelix-background p-3">
+                        <Icon className="h-6 w-6 text-armelix-primary" />
+                      </div>
+                      <span className="text-xs font-medium uppercase tracking-[0.18em] text-armelix-textSoft/70">
+                        Canal
+                      </span>
                     </div>
-                    <span className="text-sm font-medium uppercase tracking-[0.2em] text-armelix-textSoft">
-                      Contacto
+
+                    <div>
+                      <h3 className="text-2xl font-bold text-armelix-text">{option.name}</h3>
+                      <p className="mt-3 leading-relaxed text-armelix-textSoft">
+                        {option.description}
+                      </p>
+                    </div>
+
+                    <span className="inline-flex items-center text-sm font-semibold text-armelix-primary">
+                      {option.cta}
                     </span>
                   </div>
-
-                  <div>
-                    <h3 className="text-2xl font-bold text-armelix-text">{option.name}</h3>
-                    <p className="mt-3 text-armelix-textSoft leading-relaxed">
-                      {option.description}
-                    </p>
-                  </div>
-
-                  <span className="inline-flex items-center text-sm font-semibold text-armelix-primary">
-                    {option.cta}
-                  </span>
-                </div>
-              </motion.a>
-            );
-          })}
-        </motion.div>
-
+                </motion.a>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );

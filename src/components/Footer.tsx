@@ -16,8 +16,9 @@ const Footer = () => {
             Armelix Web Solutions
           </h2>
           <p className="mt-4 text-sm leading-relaxed">
-            Ayudamos a negocios a empezar a vender en internet con presencia
-            online, campañas de marketing y seguimiento de consultas.
+            Diseñamos páginas web, tiendas online y soluciones digitales para
+            que tu negocio tenga una presencia profesional y pueda crecer en
+            internet.
           </p>
         </motion.div>
 
