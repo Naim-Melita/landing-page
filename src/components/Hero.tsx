@@ -9,7 +9,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative flex min-h-svh items-center justify-center overflow-hidden bg-armelix-background px-4 py-28 sm:px-6 md:h-screen md:py-0"
+      className="relative flex min-h-[680px] items-center justify-center overflow-hidden bg-armelix-background px-4 py-28 sm:min-h-[720px] sm:px-6 md:h-screen md:min-h-0 md:py-0"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(31,139,255,0.18),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(32,227,255,0.12),_transparent_38%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
