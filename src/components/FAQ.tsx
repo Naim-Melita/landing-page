@@ -5,27 +5,29 @@ import { fadeUp, staggerContainer, viewport } from "./motion";
 
 const faqs = [
   {
-    question:
-      "¿Armelix es para mí si soy un negocio pequeño o estoy empezando?",
+    question: "¿Solo hacen páginas web o también aplicaciones?",
     answer:
-      "Absolutamente. Nuestro foco no está en el tamaño actual de tu empresa, sino en tu ambición por crecer. Diseñamos infraestructuras digitales escalables, como nuestro servicio de Presencia Digital, para que empieces con una base profesional y sólida. Construimos el ecosistema exacto que necesitás hoy para sentar las bases del crecimiento de mañana.",
+      "Hacemos las dos cosas. Desde una landing o un sitio institucional hasta plataformas y aplicaciones a medida: paneles de administración, sistemas de gestión, dashboards y productos digitales pensados para resolver un problema concreto de tu negocio, no solo para 'estar online'.",
   },
   {
-    question: "¿Qué necesito tener listo antes de contactar con  ustedes?",
+    question: "¿También hacen automatizaciones y auditorías de seguridad?",
     answer:
-      "Solo necesitás tener claridad sobre tus objetivos de negocio. Nosotros nos encargamos del resto: análisis, estrategia, diseño y desarrollo.",
+      "Sí. Además del desarrollo, ofrecemos automatizaciones con IA (bots, integraciones, respuestas automáticas) y auditorías de seguridad (revisión de servidores, DNS, MFA, backups). Podés contratarlos por separado o sumarlos a tu proyecto para que todo quede protegido y funcionando solo.",
   },
   {
-    question:
-      "¿Trabajan sólo en Argentina o puedo contratarlos desde otra ciudad?",
+    question: "¿Cuánto cuesta un proyecto?",
     answer:
-      "Trabajamos de forma remota con clientes de toda Argentina y otros países. La ubicación no es un impedimento para colaborar con vos.",
+      "Depende del alcance. Una landing arranca desde USD 100 y una plataforma o aplicación a medida se cotiza según su complejidad. La infraestructura (hosting, dominio) se cobra aparte, y una auditoría de seguridad va desde USD 300. Te pasamos un presupuesto claro y cerrado antes de empezar, sin sorpresas.",
   },
   {
-    question:
-      "¿Cuánto tiempo tardan en ver mi web publicada o mis redes activas?",
+    question: "¿Qué diferencia hay entre un servicio y un plan mensual?",
     answer:
-      "Huimos de las ‘webs hechas en 48 horas’ porque no generan resultados. Desarrollar una infraestructura digital estratégica y personalizada suele tomarnos entre 3 y 5 semanas, dependiendo de la rapidez con la que validemos los materiales. Preferimos invertir el tiempo necesario en la estrategia inicial para garantizar que tu web sea una máquina de captar clientes desde el primer día.",
+      "Los servicios (una web, una automatización, una auditoría) son trabajos puntuales con un precio cerrado. Los planes mensuales son continuidad: mantenemos, actualizamos y damos soporte todos los meses para que tu producto siga funcionando sin que tengas que ocuparte.",
+  },
+  {
+    question: "¿Trabajan de forma remota?",
+    answer:
+      "Sí. Trabajamos de forma remota con clientes de toda Argentina y otros países. Todo el desarrollo, las automatizaciones y la seguridad se gestionan a distancia sin que la ubicación sea un impedimento.",
   },
 ];
 

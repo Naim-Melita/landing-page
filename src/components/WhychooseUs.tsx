@@ -1,90 +1,113 @@
 import { motion } from "framer-motion";
-import bg from "../assets/banner-bg.jpg";
-import rocket from "../assets/rocket.png";
-import premium from "../assets/premiun.png";
-import scalability from "../assets/escalabilidad.png";
-import { fadeIn, fadeUp, staggerContainer, viewport } from "./motion";
-import SectionCTA from "./SectionCTA";
+import { Layers, FileText, RefreshCw, MessageSquare } from "lucide-react";
+import { fadeUp, fadeSide, staggerContainer, viewport } from "./motion";
 
 const benefits = [
   {
-    image: rocket,
-    title: "Más visibilidad",
+    icon: Layers,
+    title: "Producto, no solo una página",
     description:
-      "Hacemos que tu negocio sea más fácil de encontrar y entender para las personas que pueden comprarte.",
+      "Pensamos en el problema de negocio, no en 'entregar una web'. Construimos la plataforma o app que de verdad te resuelve algo.",
   },
   {
-    image: premium,
-    title: "Más consultas",
+    icon: FileText,
+    title: "Comunicación clara, sin tecnicismos",
     description:
-      "Preparamos tu web y tus campañas para que más personas te escriban por WhatsApp o te contacten con intención real.",
+      "Traducimos lo técnico a decisiones de negocio. Vas a entender qué estamos haciendo, por qué, y qué resultado esperar.",
   },
   {
-    image: scalability,
-    title: "Menos trabajo manual",
+    icon: RefreshCw,
+    title: "Continuidad, no un trabajo suelto",
     description:
-      "Ordenamos el proceso de contacto y seguimiento para que puedas responder más rápido y enfocarte en vender.",
+      "Con nuestros planes mensuales tu web, tus automatizaciones y tu seguridad quedan mantenidas y con soporte todo el tiempo.",
   },
+  {
+    icon: MessageSquare,
+    title: "Respuesta directa",
+    description:
+      "Hablás con quien resuelve, no con un formulario. Soporte por WhatsApp y tiempos de respuesta que se sienten.",
+  },
+];
+
+const stats = [
+  { value: "3", label: "servicios que se potencian entre sí" },
+  { value: "24/7", label: "monitoreo en planes recurrentes" },
+  { value: "USD 50", label: "punto de entrada por mes" },
 ];
 
 export default function WhyChooseUs() {
   return (
     <motion.section
-      style={{ backgroundImage: `url(${bg})` }}
       id="why-choose-us"
-      className="relative px-6 py-20 bg-armelix-surface bg-cover bg-center"
+      className="relative overflow-hidden bg-armelix-surface px-4 py-20 sm:px-6 lg:py-28"
       variants={staggerContainer(0.15)}
       initial="hidden"
       whileInView="visible"
       viewport={viewport}
     >
-      <div className="max-w-5xl mx-auto text-center">
-        <motion.h2
-          variants={fadeUp()}
-          className="text-4xl md:text-5xl font-extrabold tracking-tight text-armelix-primary"
-        >
-          Todo lo que necesitás para empezar a vender online
-        </motion.h2>
-        <motion.p
-          variants={fadeUp(0.08)}
-          className="mt-6 text-lg md:text-xl text-armelix-textSoft max-w-3xl mx-auto leading-relaxed"
-        >
-          No hacemos solo una página linda. Armamos una base completa para que
-          tu negocio tenga presencia en internet, atraiga personas interesadas y
-          convierta consultas en oportunidades reales.
-        </motion.p>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(31,139,255,0.14),_transparent_45%)]" />
 
-        <motion.div
-          className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3"
-          variants={staggerContainer(0.14, 0.1)}
-        >
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              variants={fadeUp(index * 0.04)}
-              className="border border-armelix-border bg-armelix-surfaceAlt p-8 text-armelix-text shadow-lg backdrop-blur-md"
-              whileHover={{ y: -12, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 220, damping: 20 }}
-            >
-              <motion.img
-                src={benefit.image}
-                className="mx-auto mb-5 w-[88%] md:w-full"
-                alt=""
-                variants={fadeIn(0.1)}
-                whileHover={{ rotate: [0, -2, 2, 0] }}
-                transition={{ duration: 0.6 }}
-              />
-              <h3 className="mb-2 text-xl font-semibold text-armelix-text">
-                {benefit.title}
-              </h3>
-              <p className="text-armelix-textSoft">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <motion.div variants={fadeSide("left")}>
+            <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.24em] text-armelix-primary/90">
+              // Por qué Armelix
+            </p>
+            <h2 className="text-3xl font-extrabold leading-tight text-armelix-text sm:text-4xl lg:text-[2.75rem]">
+              Desarrollamos, y además{" "}
+              <span className="text-armelix-primary">resolvemos el resto</span>.
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-armelix-textSoft sm:text-lg">
+              Construimos tu web o aplicación con criterio de negocio. Y como
+              también manejamos automatización y seguridad, tu producto queda
+              completo sin sumar más proveedores.
+            </p>
 
-        <motion.div variants={fadeUp(0.14)}>
-          <SectionCTA />
-        </motion.div>
+            <div className="mt-10 grid grid-cols-3 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl border border-armelix-border bg-armelix-background/60 p-4"
+                >
+                  <div className="font-mono text-2xl font-bold text-armelix-primary">
+                    {stat.value}
+                  </div>
+                  <div className="mt-1 text-xs leading-snug text-armelix-textSoft">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-5 sm:grid-cols-2"
+            variants={staggerContainer(0.12, 0.1)}
+          >
+            {benefits.map((benefit) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={benefit.title}
+                  variants={fadeUp()}
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 22 }}
+                  className="rounded-2xl border border-armelix-border bg-armelix-background/50 p-6"
+                >
+                  <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-armelix-primary/40 bg-armelix-primary/10">
+                    <Icon className="h-5 w-5 text-armelix-primary" />
+                  </span>
+                  <h3 className="mb-2 text-lg font-semibold text-armelix-text">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-armelix-textSoft">
+                    {benefit.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );

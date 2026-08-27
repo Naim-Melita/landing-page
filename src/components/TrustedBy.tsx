@@ -23,8 +23,8 @@ export default function TrustedBy() {
             Organizaciones que confiaron en nosotros
           </h2>
           <p className="mt-4 text-armelix-textSoft">
-            Trabajamos con distintos proyectos y equipos que buscaban mejorar
-            su presencia online y crecer en internet.
+            Trabajamos con proyectos y equipos que necesitaban llevar su idea a
+            un producto digital real: webs, plataformas y automatizaciones.
           </p>
         </div>
 

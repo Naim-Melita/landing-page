@@ -1,104 +1,161 @@
 import { motion } from "framer-motion";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { useRef } from "react";
+import { ArrowRight, Code2, Bot, ShieldCheck } from "lucide-react";
+
+type TerminalLine = {
+  text: string;
+  prompt?: string;
+  ok?: boolean;
+  warn?: boolean;
+  muted?: boolean;
+};
+
+const terminalLines: TerminalLine[] = [
+  { prompt: "$", text: "armelix deploy --app plataforma-negocio", muted: false },
+  { text: "› Compilando frontend + API...", muted: true },
+  { ok: true, text: "Build listo en 11.4s" },
+  { ok: true, text: "Base de datos migrada" },
+  { ok: true, text: "Integraciones (pagos, WhatsApp) OK" },
+  { ok: true, text: "SSL y dominio configurados" },
+  { prompt: "$", text: "app en producción → online ✦", muted: false },
+];
+
+const pillars = [
+  { icon: Code2, label: "Desarrollo web" },
+  { icon: Bot, label: "Automatización" },
+  { icon: ShieldCheck, label: "Seguridad" },
+];
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-
   return (
     <section
-      ref={sectionRef}
       id="home"
-      className="relative flex min-h-[680px] items-center justify-center overflow-hidden bg-armelix-background px-4 py-28 sm:min-h-[720px] sm:px-6 md:h-screen md:min-h-0 md:py-0"
+      className="relative flex min-h-screen items-center overflow-hidden bg-armelix-background px-4 pb-16 pt-32 sm:px-6 md:pt-28"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(31,139,255,0.18),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(32,227,255,0.12),_transparent_38%)]" />
+      {/* Fondos */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(31,139,255,0.18),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(32,227,255,0.14),_transparent_42%)]" />
+      <div className="absolute inset-0 opacity-[0.35] [background-image:linear-gradient(rgba(58,75,92,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(58,75,92,0.12)_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
-      <div className="absolute left-1/2 top-28 h-64 w-64 -translate-x-1/2 rounded-full bg-armelix-secondary/10 blur-3xl" />
 
-      <div className="relative z-10 flex w-full max-w-[94vw] flex-col items-center gap-5 text-center sm:max-w-5xl md:gap-6 md:px-10 lg:max-w-6xl lg:gap-7">
-        <motion.span
-          className="inline-flex items-center rounded-full border border-armelix-border bg-armelix-surface px-4 py-2 text-sm font-medium tracking-[0.14em] text-armelix-textSoft uppercase shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          Presencia online para negocios
-        </motion.span>
-
-        <motion.h1
-          className="mt-2 max-w-6xl text-3xl font-black leading-[1.03] tracking-tight text-armelix-text sm:text-4xl md:text-5xl lg:text-6xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Diseñamos páginas web y sistemas digitales para que tu negocio pueda
-          crecer en internet.
-        </motion.h1>
-
-        <motion.p
-          className="max-w-4xl text-base font-normal leading-relaxed text-armelix-textSoft sm:text-lg md:text-xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          Diseñamos páginas web rápidas, tiendas online fáciles de usar y
-          campañas en redes sociales para que más personas te encuentren, te
-          escriban y tu negocio pueda crecer con una presencia digital
-          profesional.
-        </motion.p>
-
-        <motion.a
-          href="#contact"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.05, y: -4 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="mt-5 rounded-xl bg-armelix-secondary px-7 py-3.5 text-base font-semibold text-armelix-text shadow-[0_12px_30px_rgba(31,139,255,0.28)] transition"
-        >
-          Hablemos de tu negocio
-        </motion.a>
-
-      </div>
-
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-armelix-background via-armelix-background/80 to-transparent" />
-
-      <div className="absolute bottom-5 left-0 right-0 z-10 flex justify-center md:hidden">
-        <motion.a
-          href="#services"
-          className="flex items-center justify-center text-armelix-textSoft/80 transition hover:text-armelix-text"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          aria-label="Deslizá hacia abajo"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-armelix-border bg-armelix-surface/80 backdrop-blur-sm"
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+        {/* Columna texto */}
+        <div className="flex flex-col items-start text-left">
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl text-4xl font-black leading-[1.05] tracking-tight text-armelix-text sm:text-5xl lg:text-6xl"
           >
-            <ChevronDownIcon className="h-5 w-5" />
-          </motion.div>
-        </motion.a>
-      </div>
+            Desarrollamos webs y aplicaciones que{" "}
+            <span className="bg-gradient-to-r from-armelix-primary to-armelix-secondary bg-clip-text text-transparent">
+              resuelven
+            </span>{" "}
+            problemas de tu negocio.
+          </motion.h1>
 
-      <div className="absolute bottom-8 left-0 right-0 z-10 hidden justify-center md:bottom-10 md:flex">
-        <motion.a
-          href="#services"
-          className="flex flex-col items-center gap-2 text-center text-armelix-textSoft/80 transition hover:text-armelix-text"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-        
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-armelix-border bg-armelix-surface/80 backdrop-blur-sm"
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-6 max-w-xl text-base leading-relaxed text-armelix-textSoft sm:text-lg"
           >
-            <ChevronDownIcon className="h-5 w-5" />
+            No solo landings: creamos plataformas y aplicaciones a medida. Y
+            cuando lo necesitás, sumamos automatizaciones con IA y auditorías de
+            seguridad para que todo funcione y esté protegido.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-armelix-primary to-armelix-secondary px-7 py-3.5 text-base font-semibold text-armelix-background shadow-[0_12px_30px_-8px_rgba(31,139,255,0.55)] transition"
+            >
+              Empecemos tu proyecto
+              <ArrowRight className="h-5 w-5" />
+            </motion.a>
+            <motion.a
+              href="#services"
+              whileHover={{ y: -2 }}
+              className="inline-flex items-center justify-center rounded-xl border border-armelix-border bg-armelix-surface/60 px-7 py-3.5 text-base font-semibold text-armelix-text transition hover:border-armelix-primary/60"
+            >
+              Ver servicios
+            </motion.a>
           </motion.div>
-        </motion.a>
+
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3"
+          >
+            {pillars.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2 text-sm text-armelix-textSoft">
+                <Icon className="h-4 w-4 text-armelix-primary" />
+                {label}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Columna terminal */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
+          <div className="absolute -inset-4 rounded-3xl bg-armelix-primary/10 blur-2xl" />
+          <div className="relative overflow-hidden rounded-2xl border border-armelix-border bg-[#050d17]/95 shadow-glow backdrop-blur">
+            <div className="flex items-center gap-2 border-b border-armelix-border/70 bg-armelix-surface/60 px-4 py-3">
+              <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
+              <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+              <span className="h-3 w-3 rounded-full bg-[#27c93f]" />
+              <span className="ml-3 font-mono text-xs text-armelix-textSoft/70">
+                armelix — deploy
+              </span>
+            </div>
+            <div className="space-y-2 p-5 font-mono text-[13px] leading-relaxed sm:text-sm">
+              {terminalLines.map((line, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + i * 0.18, duration: 0.4 }}
+                  className="flex items-start gap-2"
+                >
+                  {line.prompt && (
+                    <span className="text-armelix-primary">{line.prompt}</span>
+                  )}
+                  {line.ok && <span className="text-[#27c93f]">✓</span>}
+                  {line.warn && <span className="text-[#ffbd2e]">!</span>}
+                  <span
+                    className={
+                      line.ok
+                        ? "text-armelix-text"
+                        : line.warn
+                        ? "text-[#ffce7a]"
+                        : line.muted
+                        ? "text-armelix-textSoft/70"
+                        : "text-armelix-text"
+                    }
+                  >
+                    {line.text}
+                  </span>
+                </motion.div>
+              ))}
+              <motion.span
+                animate={{ opacity: [1, 0.2, 1] }}
+                transition={{ duration: 1.1, repeat: Infinity }}
+                className="inline-block h-4 w-2 translate-y-0.5 bg-armelix-primary"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

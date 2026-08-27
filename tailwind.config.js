@@ -27,6 +27,19 @@ export default {
       },
       fontFamily: {
         display: ["Red Hat Display", "Noto Sans", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
+      boxShadow: {
+        glow: "0 0 0 1px rgba(32,227,255,0.08), 0 20px 60px -20px rgba(31,139,255,0.45)",
+      },
+      keyframes: {
+        "pulse-ring": {
+          "0%, 100%": { opacity: "0.35" },
+          "50%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "pulse-ring": "pulse-ring 2.4s ease-in-out infinite",
       },
     },
   },

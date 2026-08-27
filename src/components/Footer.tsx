@@ -13,23 +13,26 @@ const Footer = () => {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
         <motion.div variants={fadeUp()}>
           <h2 className="text-2xl font-bold text-armelix-text tracking-wide">
-            Armelix Web Solutions
+            ARMELIX
           </h2>
           <p className="mt-4 text-sm leading-relaxed">
-            Diseñamos páginas web, tiendas online y soluciones digitales para
-            que tu negocio tenga una presencia profesional y pueda crecer en
-            internet.
+            Estudio técnico boutique. Desarrollamos webs, plataformas y
+            aplicaciones que resuelven problemas de negocio, con automatización
+            con IA y seguridad cuando hace falta.
           </p>
         </motion.div>
 
         <motion.div variants={fadeUp(0.06)} className="flex flex-col space-y-3">
-          <h3 className="text-lg font-semibold text-armelix-text">Navegacion</h3>
+          <h3 className="text-lg font-semibold text-armelix-text">Navegación</h3>
           <nav className="flex flex-col space-y-2">
             <a href="#home" className="hover:text-armelix-primary transition">
               Inicio
             </a>
             <a href="#services" className="hover:text-armelix-primary transition">
               Servicios
+            </a>
+            <a href="#planes" className="hover:text-armelix-primary transition">
+              Planes
             </a>
             <a href="#faq" className="hover:text-armelix-primary transition">
               FAQ
@@ -42,7 +45,7 @@ const Footer = () => {
 
         <motion.div variants={fadeUp(0.12)}>
           <h3 className="text-lg font-semibold text-armelix-text">Contacto</h3>
-          <p className="mt-1 text-sm">armelixempresa@gmail.com</p>
+          <p className="mt-1 text-sm">hello@armelix.dev</p>
           <motion.a
             href="https://wa.me/5491141775402?text=Hola%20quiero%20mas%20informacion"
             target="_blank"

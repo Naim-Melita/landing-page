@@ -5,6 +5,7 @@ import { fadeIn, fadeUp, staggerContainer, viewport } from "./motion";
 
 const navItems = [
   { label: "Servicios", href: "#services" },
+  { label: "Planes", href: "#planes" },
   { label: "FAQ", href: "#faq" },
   { label: "Contacto", href: "#contact" },
 ];
@@ -20,14 +21,14 @@ const Header = () => {
       animate="visible"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-[#020f2e]/45 px-4 py-3 backdrop-blur-md">
-        <motion.div className="flex items-center gap-4" whileHover={{ y: -1 }}>
-          <h2 className="text-2xl font-bold leading-tight tracking-[-0.015em] text-white">
+        <motion.a href="#home" className="flex items-center" whileHover={{ y: -1 }}>
+          <span className="text-xl font-bold leading-tight tracking-[-0.015em] text-white">
             ARMELIX
-          </h2>
-        </motion.div>
+          </span>
+        </motion.a>
 
         <motion.nav
-          className="hidden items-center gap-9 md:flex"
+          className="hidden items-center gap-8 md:flex"
           variants={staggerContainer(0.1, 0.1)}
           initial="hidden"
           animate="visible"
@@ -36,13 +37,21 @@ const Header = () => {
             <motion.a
               key={item.href}
               variants={fadeUp()}
-              className="text-sm font-medium leading-normal text-white transition hover:text-armelix-primary"
+              className="text-sm font-medium leading-normal text-armelix-textSoft transition hover:text-armelix-primary"
               href={item.href}
               whileHover={{ y: -2 }}
             >
               {item.label}
             </motion.a>
           ))}
+          <motion.a
+            variants={fadeUp()}
+            href="#contact"
+            whileHover={{ y: -2 }}
+            className="rounded-lg border border-armelix-primary/50 bg-armelix-primary/10 px-4 py-2 text-sm font-semibold text-armelix-primary transition hover:bg-armelix-primary hover:text-armelix-background"
+          >
+            Empecemos tu proyecto
+          </motion.a>
         </motion.nav>
 
         <div className="md:hidden">

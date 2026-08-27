@@ -40,8 +40,8 @@ function MailIcon(props: IconProps) {
 const contactOptions = [
   {
     name: "WhatsApp",
-    description: "La forma más rápida de contarnos qué vendés y qué necesitás.",
-    href: "https://wa.me/5491141775402?text=Hola%20quiero%20mas%20informacion",
+    description: "La forma más rápida de contarnos qué querés desarrollar o resolver.",
+    href: "https://wa.me/5491141775402?text=Hola%20quiero%20desarrollar%20un%20proyecto",
     cta: "Escribir por WhatsApp",
     icon: WhatsAppIcon,
   },
@@ -54,15 +54,15 @@ const contactOptions = [
   },
   {
     name: "Facebook",
-    description: "Contactanos desde nuestra página y conocé más del servicio.",
+    description: "Contactanos desde nuestra página y conocé más de los servicios.",
     href: "https://www.facebook.com/profile.php?id=61573234855836",
     cta: "Ir a Facebook",
     icon: FacebookIcon,
   },
   {
     name: "Email",
-    description: "Ideal si querés enviarnos detalles de tu negocio o proyecto.",
-    href: "mailto:armelixempresa@gmail.com",
+    description: "Ideal si querés enviarnos detalles de tu infraestructura o proyecto.",
+    href: "mailto:hello@armelix.dev",
     cta: "Enviar email",
     icon: MailIcon,
   },
@@ -92,15 +92,15 @@ export default function Contact() {
               variants={fadeUp(0.05)}
               className="mt-6 max-w-[14ch] text-4xl font-bold leading-[1.08] tracking-[-0.02em] text-armelix-text md:text-5xl"
             >
-              Contanos sobre tu negocio y vemos cómo ayudarte
+              Contanos tu proyecto y vemos cómo resolverlo
             </motion.h2>
             <motion.p
               variants={fadeUp(0.1)}
               className="mt-6 max-w-xl text-base leading-relaxed text-armelix-textSoft md:text-lg"
             >
-              Si querés empezar a vender en internet, mejorar tu presencia online
-              o lanzar campañas de marketing, escribinos por el canal que te
-              resulte más cómodo.
+              Ya sea una web, una plataforma a medida, una automatización o una
+              auditoría de seguridad, escribinos por el canal que te resulte más
+              cómodo. Respondemos rápido.
             </motion.p>
           </div>
 
